@@ -2,18 +2,30 @@
 
 function changeVocals (str) {
  
-    var alphabet='abcdefghijklmnopqrstuvwxyz';
-    var upperCaseAlphabet='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var alphabet='bcdfghjklmnpqrstvwxyz';
+    var upperCaseAlphabet='BCDFGHJKLMNPQRSTVWXYZ';
+    var vocal='aeiou';
+    var vocalNext='bfjpv'
+    var upperCaseVocal='AEIOU';
+    var upperCaseVocalNext='BFJPV';
     var movedStr='';
 
     for(var i=0; i<str.length; i++) {
-        for(var j=0; j<alphabet.length; j++) {
-
-            if(str[i]===alphabet[j]) {
-                movedStr += alphabet[j+1];
-            } else if(str[i]===upperCaseAlphabet[j]) {
-                movedStr += upperCaseAlphabet[j+1];
+        for(var j=0; j<vocal.length; j++) {
+            
+            if(str[i]===vocal[j]) {
+                movedStr += vocalNext[j];
+            } else if(str[i]===upperCaseVocal[j]) {
+                movedStr += upperCaseVocalNext[j];
             }
+        }
+        for(var k=0; k<alphabet.length; k++){
+           
+            if(str[i]===alphabet[k]){
+                movedStr += alphabet[k]
+            } else if(str[i]===upperCaseAlphabet[k]) {
+                movedStr += upperCaseAlphabet[k]
+            }     
         }
     }
     return movedStr;
